@@ -1,0 +1,19 @@
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Baloo Bhaina', cursive;
+}
+p{
+  font-family: 'Indie Flower', cursive;
+  font-size:30px;
+}
+.bg-dark-blue{
+  background-color: #04081A;
+  color:#FFF;
+}
+.bg-dark-grey{
+  background-color: #808080;
+  color:#FFF;
+}
+.bg-dark-grey:hover{
+  background-color:#D3D3D3;
+}

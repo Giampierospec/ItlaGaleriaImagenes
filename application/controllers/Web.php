@@ -24,5 +24,8 @@ class Web extends CI_Controller{
     $d['cod'] = $cod;
     $this->load->view('ver_foto',$d);
   }
+  function contacto(){
+    $this->load->view('contacto.php');
+  }
 
 }

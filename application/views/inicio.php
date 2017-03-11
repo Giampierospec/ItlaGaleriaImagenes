@@ -2,10 +2,10 @@
 plantilla::inicio();
  ?>
 <!-- Page Heading -->
-<div class="row">
+<div class="row text-center">
     <div class="col-lg-12">
         <h1 class="page-header">Nuestras Imágenes
-            <small>Homework</small>
+            <small> Homework</small>
         </h1>
     </div>
 </div>
@@ -24,9 +24,11 @@ plantilla::inicio();
             $foto = "{$url}/{$foto}";
         }
         echo "<div class='col-md-3 portfolio-item'>
+            <div class='thumbnail'>
             <a href='{$url}/web/ver_foto/{$imagen->id}'>
                 <img class='img-responsive' src='{$foto}' alt=''>
             </a>
+        </div>
         </div>";
     }
 ?>

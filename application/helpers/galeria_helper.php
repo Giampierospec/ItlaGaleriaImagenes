@@ -25,6 +25,9 @@ class plantilla{
         <!-- Bootstrap Core JavaScript -->
         <script src="<?php echo base_url('base') ?>/js/bootstrap.min.js"></script>
         <!-- Custom CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Indie+Flower" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo base_url('') ?>/css/font_backgrounds.css">
+
         <link href="<?php echo base_url('base') ?>/css/4-col-portfolio.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,7 +36,7 @@ class plantilla{
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <script src="https://use.fontawesome.com/01d9e54a7d.js" charset="utf-8"></script>
     </head>
 
     <body>
@@ -61,7 +64,7 @@ class plantilla{
                             <a href="<?php echo base_url('web/acerca_de'); ?>">Acerca del Autor</a>
                         </li>
                         <li>
-                            <a href="#">Contacto</a>
+                            <a href="<?php echo base_url('web/contacto') ?>">Contacto</a>
                         </li>
                     </ul>
                 </div>
