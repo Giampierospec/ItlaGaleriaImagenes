@@ -25,5 +25,13 @@ class Admin extends CI_Controller{
     unset($_SESSION['gale_user']);
     redirect('admin/login');
   }
+  function edit($cod=0){
+    if($cod == 0){
+      redirect('admin');
+    }
+    $d = array();
+    $d['cod'] = $cod;
+    $this->load->view('admin/edit',$d);
+  }
 
 }

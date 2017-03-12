@@ -1,7 +1,7 @@
 <?php
 $CI =& get_instance();
 $mensaje= '';
-if($_POST && $_FILES['foto']['type'] == 'image/png'){
+if($_POST && $_FILES['foto']['type'] == 'image/jpeg'){
    $f = new stdClass();
    $f->nombre = $_POST['nombre'];
    $f->comentario = $_POST['comentario'];
@@ -11,15 +11,13 @@ if($_POST && $_FILES['foto']['type'] == 'image/png'){
    $foto = $_FILES['foto'];
    $cod = $this->db->insert_id();
    if($foto['error'] == 0){
-      $tmp = "fotos/{$cod}.png";
+      $tmp = "fotos/{$cod}.jpg";
       move_uploaded_file($foto['tmp_name'],$tmp);
    }
 
+}
 
-}
-else{
-   $mensaje = "La foto no es png porfavor busque una foto png";
-}
+
 
 plantilla::inicio();
 
@@ -39,17 +37,17 @@ plantilla::inicio();
       </div>
       <div class="form-group input-group">
          <label for="comentario" class="input-group-addon">Comentario:</label>
-         <textarea name="comentario" class="form-control"></textarea>
+         <textarea name="comentario" class="form-control" ></textarea>
       </div>
       <div class="form-group input-group">
          <label for="foto" class="input-group-addon">Imagen:</label>
-         <input type="file" name="foto" class="form-control" required accept="image/*"/>
+         <input type="file" name="foto" class="form-control" required accept="image/jpeg"/>
       </div>
       <div class="text-center" style="color:red;">
          <?php echo $mensaje; ?>
       </div>
       <div>
-         <button type="submit" class="btn btn-success">Guardar</button>
+         <button type="submit" class="btn btn-success" >Guardar</button>
       </div>
    </div>
    </form>
@@ -69,15 +67,47 @@ plantilla::inicio();
      <tbody>
         <?php
         $imagenes = cargar_imagenes();
+        $admin = base_url('admin');
         foreach ($imagenes as $imagen) {
            echo "<tr>
-           <td><img src='fotos/{$imagen->id}.png' height='50'/></td>
+           <td><img src='fotos/{$imagen->id}.jpg' height='50'/></td>
            <td>{$imagen->id}</td>
            <td>{$imagen->nombre}</td>
            <td>{$imagen->comentario}</td>
+           <td> <a href='#' class='btn btn-default' onclick='confirmationEdit();'><i class='fa fa-pencil-square-o'></i> Editar</a></td>
+           <td> <a href='#' class='btn btn-danger'><i class='fa fa-trash' onclick='confirmationDelete();'></i> Eliminar</a></td>
+
            </tr>";
         }
          ?>
      </tbody>
    </table>
  </fieldset>
+
+ <script type="text/javascript">
+function image(nom_img, com_img){
+   this.nombre = nom_img;
+   this.comentario = com_img;
+}
+function save(r){
+var datos = JSON.stringify(r);
+localStorage.setItem("inputsImagen",datos);
+}
+ function confirmationEdit(){
+    if(confirm("¿Esta seguro que quiere editar?")){
+      var nom_img = '<?php echo (isset($imagen->nombre))?$imagen->nombre:0 ?>';
+      var com_img = '<?php echo (isset($imagen->comentario))?$imagen->comentario:0  ?>';
+      var r = new image(nom_img,com_img);
+      save(r);
+      window.open("<?php echo $admin?>/edit/<?php echo (isset($imagen->id))?$imagen->id:0 ?>","_self");
+   }
+
+}
+function confirmationDelete(){
+   if(confirm("¿Esta seguro que quiere Eliminar?")){
+      var nom_img = '<?php echo (isset($imagen->nombre))?$imagen->nombre:0 ?>';
+      var com_img = '<?php echo (isset($imagen->comentario))?$imagen->comentario:0  ?>';
+     window.open("<?php echo $admin?>/delete/<?php echo (isset($imagen->id))?$imagen->id:0  ?>","_self");
+  }
+}
+ </script>

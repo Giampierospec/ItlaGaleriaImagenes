@@ -16,7 +16,7 @@ plantilla::inicio();
     $url =   base_url('');
 
     foreach($imagenes as $imagen){
-        $foto = "fotos/{$imagen->id}.png";
+        $foto = "fotos/{$imagen->id}.jpg";
         if(!is_file($foto)){
             $foto = "http://placehold.it/750x450/?text=no_foto";
         }

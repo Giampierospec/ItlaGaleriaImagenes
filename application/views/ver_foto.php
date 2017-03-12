@@ -18,7 +18,7 @@ $imagen = $rs[0];
        <h1><?php echo $imagen->nombre ?></h1>
        <div class="col-xs-12">
          <div class="thumbnail">
-           <img src="<?php echo base_url("fotos/{$imagen->id}.png");?>"/>
+           <img src="<?php echo base_url("fotos/{$imagen->id}.jpg");?>"/>
              <div class="caption">
                <p><strong><?php echo $imagen->comentario ?></strong></p>
              </div>
