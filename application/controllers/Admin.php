@@ -33,5 +33,18 @@ class Admin extends CI_Controller{
     $d['cod'] = $cod;
     $this->load->view('admin/edit',$d);
   }
+  function delete($cod=0){
+    if($cod == 0){
+      redirect('admin');
+    }
+    $CI =& get_instance();
+    $CI->db->where('id',$cod);
+    $CI->db->delete('imagenes');
+    $dir = 'C:/xampp/htdocs/galeria/fotos/';
+    $file =  $dir.$cod.'.jpg';
+    unlink($file);
+    redirect('admin');
+
+  }
 
 }

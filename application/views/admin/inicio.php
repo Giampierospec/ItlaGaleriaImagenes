@@ -75,7 +75,7 @@ plantilla::inicio();
            <td>{$imagen->nombre}</td>
            <td>{$imagen->comentario}</td>
            <td> <a href='#' class='btn btn-default' onclick='confirmationEdit();'><i class='fa fa-pencil-square-o'></i> Editar</a></td>
-           <td> <a href='#' class='btn btn-danger'><i class='fa fa-trash' onclick='confirmationDelete();'></i> Eliminar</a></td>
+           <td> <a href='#' class='btn btn-danger' onclick='confirmationDelete();'><i class='fa fa-trash'></i> Eliminar</a></td>
 
            </tr>";
         }
@@ -105,8 +105,6 @@ localStorage.setItem("inputsImagen",datos);
 }
 function confirmationDelete(){
    if(confirm("¿Esta seguro que quiere Eliminar?")){
-      var nom_img = '<?php echo (isset($imagen->nombre))?$imagen->nombre:0 ?>';
-      var com_img = '<?php echo (isset($imagen->comentario))?$imagen->comentario:0  ?>';
      window.open("<?php echo $admin?>/delete/<?php echo (isset($imagen->id))?$imagen->id:0  ?>","_self");
   }
 }
