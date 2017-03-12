@@ -14,6 +14,9 @@ p{
   background-color: #808080;
   color:#FFF;
 }
+button.bg-dark-blue:hover{
+  background-color:#A9A9A9
+}
 .bg-dark-grey:hover{
   background-color:#D3D3D3;
 }
