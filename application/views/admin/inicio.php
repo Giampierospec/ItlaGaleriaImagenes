@@ -73,11 +73,12 @@ plantilla::inicio();
            <td><img src='fotos/{$imagen->id}.jpg' height='50'/></td>
            <td>{$imagen->id}</td>
            <td>{$imagen->nombre}</td>
-           <td>{$imagen->comentario}</td>
-           <td> <a href='#' class='btn btn-default' onclick='confirmationEdit();'><i class='fa fa-pencil-square-o'></i> Editar</a></td>
-           <td> <a href='#' class='btn btn-danger' onclick='confirmationDelete();'><i class='fa fa-trash'></i> Eliminar</a></td>
-
-           </tr>";
+           <td>{$imagen->comentario}</td>"
+           ?>
+           <td> <a href='#' class='btn btn-default' onclick='confirmationEdit("<?php echo $imagen->id ?>","<?php echo $imagen->nombre ?>","<?php echo $imagen->comentario ?>");'><i class='fa fa-pencil-square-o'></i> Editar</a></td>
+           <td> <a href='#' class='btn btn-danger' onclick='confirmationDelete("<?php echo $imagen->id ?>");'><i class='fa fa-trash'></i> Eliminar</a></td>
+           <?php
+           echo "</tr>";
         }
          ?>
      </tbody>
@@ -93,19 +94,19 @@ function save(r){
 var datos = JSON.stringify(r);
 localStorage.setItem("inputsImagen",datos);
 }
- function confirmationEdit(){
+ function confirmationEdit(id_img,nom_img, img_cm){
     if(confirm("¿Esta seguro que quiere editar?")){
-      var nom_img = '<?php echo (isset($imagen->nombre))?$imagen->nombre:0 ?>';
-      var com_img = '<?php echo (isset($imagen->comentario))?$imagen->comentario:0  ?>';
+      var nom_img = String(nom_img);
+      var com_img = String(img_cm);
       var r = new image(nom_img,com_img);
       save(r);
-      window.open("<?php echo $admin?>/edit/<?php echo (isset($imagen->id))?$imagen->id:0 ?>","_self");
+      window.open("<?php echo $admin?>/edit/"+id_img,"_self");
    }
 
 }
-function confirmationDelete(){
+function confirmationDelete(id_img){
    if(confirm("¿Esta seguro que quiere Eliminar?")){
-     window.open("<?php echo $admin?>/delete/<?php echo (isset($imagen->id))?$imagen->id:0  ?>","_self");
+     window.open("<?php echo $admin?>/delete/"+id_img,"_self");
   }
 }
  </script>
