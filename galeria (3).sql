@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2017 at 10:22 PM
+-- Generation Time: Mar 14, 2017 at 01:16 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -38,16 +38,12 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id`, `nombre`, `comentario`, `fecha`) VALUES
-(36, 'Giampiero', 'me in my vacations', '1489349829'),
 (37, 'Vacations', 'me in vacations', '1489349858'),
-(38, 'The beach', 'enjoy!', '1489349877'),
-(39, 'Cousins', 'These are some of my cousins', '1489349959'),
-(40, 'Me', 'yet again', '1489349982'),
+(40, 'Me', 'yet again', '1489371697'),
 (41, 'Another photo', 'Yes yet another one', '1489350057'),
 (42, 'Travels', 'in this case new york', '1489350359'),
-(43, 'When i was little', 'ok this is maybe too much', '1489350493'),
-(44, 'Papi y yo', 'mmmm', '1489352843'),
-(45, 'new photo', 'ok a new one', '1489352887');
+(46, 'giampiero', 'nice', '1489371082'),
+(47, 'giampiero', 'ok...', '1489371641');
 
 -- --------------------------------------------------------
 
@@ -93,7 +89,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
